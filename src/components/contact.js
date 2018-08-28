@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import {Link} from 'react-router-dom';
 
 class contact extends Component {
@@ -67,8 +68,13 @@ class contact extends Component {
                                     </div>
                                 </form>
                             </div>
-                            <div class="col-sm-5 contact-address wow fadeInUp animated b">
+                            <div className="col-sm-5 contact-address wow fadeInUp animated b" style={{height:'300px'}}>
                                 <h3>Vị trí công ty</h3>
+                                <Map google={this.props.google} zoom={14}>
+
+                                    <Marker onClick={this.onMarkerClick}
+                                    name={'Current location'} />
+                                </Map>
                                 <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
                                     
                                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -82,5 +88,8 @@ class contact extends Component {
     }
 }
 
-export default contact;
+export default GoogleApiWrapper({
+    apiKey: ("AIzaSyA0DBkTL4IbodxPlluxzOl8RgbYkAb8XuY")
+  })(contact)
+  
 
