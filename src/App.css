@@ -1,0 +1,58 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+   float: left;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.mm{
+  visibility: visible; 
+  animation-name: fadeIn;
+}
+
+.n{
+  text-align: right;
+}
+
+.v{
+  width: 1108px;
+}
+.h{
+  visibility: visible; 
+  animation-name: fadeIn;
+}
+.c{
+  visibility: visible; 
+  animation-name: fadeInLeft;
+}
+.b{
+  visibility: visible; 
+  animation-name: fadeInUp;
+}
+.nn{
+  text-align:right;
+}
+.nl{
+  text-align:left;
+}
