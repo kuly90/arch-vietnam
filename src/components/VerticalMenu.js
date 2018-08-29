@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
+import AuthService from './service/AuthService';
+
+const Auth = new AuthService();
 
 class VerticalMenu extends Component {
+
+    handleLogout(){
+        Auth.logout()
+        this.props.history.push('/login');
+        
+      }
+
     render() {
         return (
             <div>
@@ -9,7 +19,7 @@ class VerticalMenu extends Component {
                     <NavLink to="/adminPage">Add News</NavLink>
                     <NavLink to="/customers">Customers</NavLink>
                     <br />
-                    <button className="btn btn danger">LogOut</button>
+                    <button onClick={this.handleLogout.bind(this)} className="btn btn danger">LogOut</button>
                 </div>
             </div>
 
@@ -17,4 +27,4 @@ class VerticalMenu extends Component {
     }
 }
 
-export default VerticalMenu;
+export default withRouter(VerticalMenu);
