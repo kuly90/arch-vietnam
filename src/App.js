@@ -8,24 +8,28 @@ import Solutions from './components/Solutions';
 import New from './components/New';
 import contact from './components/contact';
 import Privacy from './components/Privacy';
-import { BrowserRouter as Router ,Route, NavLink} from 'react-router-dom';
+import Login from "./components/Login";
+import Admin from "./components/Admin";
+import Customers from "./components/Customers";
+import { BrowserRouter as Router ,Route} from 'react-router-dom';
 
 class App extends Component {
     render() {
         return (
             <Router>
-
                 <div className="App">
                     <Header />
-                        <Route path="/" exact component={container} />
-                        <Route path="/about" component={about} /> 
-                        <Route path="/Solutions" component={Solutions} /> 
-                        <Route path="/New" component={New} /> 
-                        <Route path="/contact" component={contact} /> 
-                        <Route path="/Privacy" component={Privacy} /> 
+                    <Route path="/" exact component={container} />
+                    <Route path="/login" component={Login} />
+                    <Route path="/adminPage" component={Admin} />
+                    <Route path="/customers" component={Customers} />
+                    <Route path="/about" component={about} /> 
+                    <Route path="/Solutions" component={Solutions} /> 
+                    <Route path="/New" component={New} /> 
+                    <Route path="/contact" component={contact} /> 
+                    <Route path="/Privacy" component={Privacy} /> 
                     <Footer />               
                 </div>
-
             </Router>
         );
     }
