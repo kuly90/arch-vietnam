@@ -4,7 +4,7 @@ class App extends Component {
     render() {
         return (
             <div class="content">
-                                    
+             <div className="page-title-container v" ></div>           
                 <div class="container">
                     <p className="nn"><span>Lưu hành từ ngày 01/04/2015</span></p>
 
@@ -52,13 +52,13 @@ class App extends Component {
 
                     <p className="nl"><span>Bộ phận quản lý: Công ty TNHH Arch Việt Nam</span></p>
 
-                    <p> className="nl"<span>TEL<span>：</span></span>02363-888-575
+                    <p  className="nl"><span>TEL<span>：</span></span>02363-888-575
                     <br/>
                     </p>
 
                 </div>
-
-        </div>
+                </div>
+        
         );
     }
 }

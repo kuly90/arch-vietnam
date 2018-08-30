@@ -24,17 +24,17 @@ class Customers extends Component {
 			.catch(err => console.error(err))
 	}
 
-	confirmDelete(item){
+	confirmDelete(item) {
 		this.setState({
 			delCustomer: item
 		})
 	}
 
-	deleteCustomer(delCustomer){
+	deleteCustomer(delCustomer) {
 		const id = delCustomer.id;
 		fetch(`http://localhost:8080/customers/deleteCustomer?id=${id}`)
-		.then(this.getCustomers)
-		.catch(err => console.error(err))
+			.then(this.getCustomers)
+			.catch(err => console.error(err))
 	}
 
 	render() {
@@ -59,17 +59,17 @@ class Customers extends Component {
 							</thead>
 							<tbody>
 								{
-									customers.map((item, index) => 
-									<tr key={index}>
-										<td style={{textAlign:'left'}}>{item.name}</td>
-										<td style={{textAlign:'left'}}>{item.email}</td>
-										<td style={{textAlign:'left'}}>{item.subject}</td>
-										<td style={{textAlign:'left'}}>{item.message}</td>
-										<td><button className="btn btn-danger" data-toggle="modal" data-target="#myModalDelete" onClick={() => this.confirmDelete(item)}>
+									customers.map((item, index) =>
+										<tr key={index}>
+											<td style={{ textAlign: 'left' }}>{item.name}</td>
+											<td style={{ textAlign: 'left' }}>{item.email}</td>
+											<td style={{ textAlign: 'left' }}>{item.subject} <br/> ({item.date_create})</td>
+											<td style={{ textAlign: 'left' }}>{item.message}</td>
+											<td><button className="btn btn-danger" data-toggle="modal" data-target="#myModalDelete" onClick={() => this.confirmDelete(item)}>
 												<span className="fa fa-trash-o fa-fw"></span>
 											</button></td>
-									</tr>
-								)
+										</tr>
+									)
 								}
 							</tbody>
 						</table>
@@ -81,7 +81,7 @@ class Customers extends Component {
 						<div className="modal-content">
 							<div className="modal-header">
 								<h5 className="modal-title">
-								<span className="fa fa-exclamation-triangle btn-danger"></span>&nbsp;
+									<span className="fa fa-exclamation-triangle btn-danger"></span>&nbsp;
 									Do you want to delete customer has name is "{delCustomer.name}" ?
 									</h5>
 								<button type="button" className="close" data-dismiss="modal">&times;</button>
