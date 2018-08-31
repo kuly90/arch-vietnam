@@ -31,7 +31,7 @@ class Login extends Component {
                     <div className="checkbox">
                         <label><input type="checkbox" name="remember" /> Remember me</label>
                     </div>
-                    <button type="submit" className="btn btn-default">Submit</button>
+                    <button type="submit" className="btn btn-primary">Login</button>
                 </form>
             </div>
         );

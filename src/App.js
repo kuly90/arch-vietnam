@@ -11,7 +11,8 @@ import Privacy from './components/Privacy';
 import Login from "./components/Login";
 import Admin from "./components/Admin";
 import Customers from "./components/Customers";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import CustomerDetail from "./components/CustomerDetail"
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 
 class App extends Component {
 	render() {
@@ -23,6 +24,7 @@ class App extends Component {
 					<Route path="/login" component={Login} />
 					<Route path="/adminPage" component={Admin} />
 					<Route path="/customers" component={Customers} />
+					<Route path="/customerDetail/:id" component={CustomerDetail}/>
 					<Route path="/about" component={about} />
 					<Route path="/Solutions" component={Solutions} />
 					<Route path="/New" component={New} />
