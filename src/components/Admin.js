@@ -7,7 +7,7 @@ import AddNews from "./AddNews";
 class Admin extends Component {
     render() {
         return (
-            <div>
+            <div classname="container">
                 <AddNews />
             </div>
         );

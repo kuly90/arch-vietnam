@@ -84,7 +84,12 @@ class Customers extends Component {
 													:
 													<td style={{ textAlign: 'left', fontWeight: 'bold', cursor: 'pointer' }} onClick={() => this.handlerDetail(item)}>{item.message.substring(0, 50)}&nbsp;...</td>
 											}
-											<td style={{ textAlign: 'left', cursor: 'pointer' }} onClick={() => this.handlerDetail(item)}>{item.date_create}</td>
+											{
+												item.status === '1' ?
+													<td style={{ textAlign: 'left', cursor: 'pointer' }} onClick={() => this.handlerDetail(item)}>{item.date_create}</td>
+													:
+													<td style={{ textAlign: 'left', fontWeight: 'bold', cursor: 'pointer' }} onClick={() => this.handlerDetail(item)}>{item.date_create}</td>
+											}
 											<td>
 												<button className="btn btn-danger" data-toggle="modal" data-target="#myModalDelete"
 													onClick={() => this.confirmDelete(item)}>
