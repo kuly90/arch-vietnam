@@ -9,7 +9,14 @@ class CustomerDetail extends Component {
 				email: '',
 				subject: '',
 				message: ''
-			}]
+			}],
+			email: '',
+			subject: '',
+			message: '',
+			formRep: false,
+			cusRep: {},
+			repMail: '',
+			repMailErr:''
 		}
 	}
 
@@ -21,8 +28,25 @@ class CustomerDetail extends Component {
 			.catch(err => console.error(err))
 	}
 
+	replyForm(item) {
+		this.setState({ formRep: true, cusRep: item })
+	}
+
+	handlerChange = e => {
+		this.setState({[e.target.name]: e.target.value})
+	}
+
+	repMail(cusRep) {
+		const { subject, message } = this.state;
+		const id = this.props.match.params.id.replace(":","");
+		fetch(`http://localhost:8080/reply-email?email=${cusRep.email}&subject=${subject}&message=${message}`)
+			.then(this.setState({repMail:'Reply Mail Success !', formRep: false}))
+			.catch(err => console.error(err))
+		this.props.history.push(`/customerDetail/:${id}`)
+	}
+
 	render() {
-		const { customerDetail } = this.state;
+		const { customerDetail, formRep, cusRep } = this.state;
 
 		return (
 			<div className="container">
@@ -31,10 +55,11 @@ class CustomerDetail extends Component {
 						<VerticalMenu />
 					</div>
 					<div className="col-md-10">
-						<div className="col-sm-7 contact-form">
+						<div className="col-sm-6 contact-form">
+						<p style={{color:'green'}}>{this.state.repMail}</p>
 							{
 								customerDetail.map((item, index) =>
-									<div id="contact-form" key={index}>
+									<div key={index}>
 										<label style={{ fontWeight: 'bold' }}>Name</label>
 										<input type="text" id="contactform-name" className="form-control" value={item.name} readOnly />
 										<p className="help-block help-block-error"></p>
@@ -45,12 +70,31 @@ class CustomerDetail extends Component {
 										<input type="text" id="contactform-subject" className="form-control" value={item.subject} readOnly />
 										<p className="help-block help-block-error"></p>
 										<label style={{ fontWeight: 'bold' }}>Message</label>
-										<textarea id="contactform-body" className="form-control" size="50" value={item.message} readOnly />
+										<textarea className="form-control" value={item.message} readOnly />
 										<p className="help-block help-block-error"></p>
+										<button className="btn btn-primary" onClick={() => this.replyForm(item)}>Reply</button>
 									</div>
 								)
 							}
 						</div>
+						{
+							formRep == true ?
+								<div className="col-sm-6 contact-form" style={{marginTop:'134px'}}>
+									<div id="contact-form">
+										<input type="hidden" className="form-control" />
+										<label style={{ fontWeight: 'bold' }}>Subject</label>
+										<input type="text" className="form-control" name="subject" onChange={this.handlerChange}/>
+										<p className="help-block help-block-error"></p>
+										<label style={{ fontWeight: 'bold' }}>Message</label>
+										<textarea className="form-control" size="50" name="message" onChange={this.handlerChange}/>
+										<p className="help-block help-block-error"></p>
+										<button className="btn btn-primary" onClick={() => this.repMail(cusRep)}>Send</button>
+									</div>
+								</div>
+								:
+								<div></div>
+						}
+
 					</div>
 				</div>
 			</div>

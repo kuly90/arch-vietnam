@@ -51,6 +51,7 @@ class ListNews extends Component {
 
 	render() {
 		const { listNews, delNews } = this.state;
+		
 		return (
 			<div className="container">
 				<div className="row">

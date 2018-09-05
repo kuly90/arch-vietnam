@@ -46,19 +46,18 @@ class AddNews extends Component {
 						<VerticalMenu />
 					</div>
 					<div className="col-md-10">
-						<h1>Add News Here</h1>
+						<h3>Add News</h3>
 						<p style={{ color: 'red' }}>{this.state.msgError}</p>
 						<p style={{ color: 'green' }}>{this.state.msgSuccess}</p>
-						<div className="col-sm-7 contact-form">
+						<div className="col-sm-6">
 							<label className="control-label" htmlFor="contactform-subject" style={{ fontWeight: 'bold' }}>Title <span style={{ color: 'red' }}>*</span></label>
 							<input type="text" id="contactform-subject" className="form-control" name="title"
-								onChange={this.hanlerChange} value={this.state.title} />	<br />
+								onChange={this.hanlerChange} value={this.state.title} />
+								<p></p>
 							<label className="control-label" htmlFor="contactform-body" style={{ fontWeight: 'bold' }}>Body <span style={{ color: 'red' }}>*</span></label>
-							<textarea id="contactform-body" className="form-control" size="60" style={{ height: '300px' }}
-								onChange={this.hanlerChange} name="body" value={this.state.body} />
-							<div className="form-group">
-								<button onClick={this.handlerSaveNews} type="submit" className="btn btn-primary">Gửi</button>
-							</div>
+							<textarea className="form-control" size="60" style={{ height: '200px' }}
+								onChange={this.hanlerChange} name="body" value={this.state.body} /><br/>
+								<button onClick={this.handlerSaveNews} type="submit" className="btn btn-primary">ADD</button>
 						</div>
 					</div>
 				</div>
