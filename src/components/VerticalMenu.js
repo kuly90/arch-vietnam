@@ -31,6 +31,7 @@ class VerticalMenu extends Component {
 			<div>
 				<div className="vertical-menu">
 					<NavLink to="/adminPage">Add News</NavLink>
+					<NavLink to="/listNews">List News</NavLink>
 					<NavLink to="/customers">Customers
                         {
 							customers.length === 0 ?

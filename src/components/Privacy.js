@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class App extends Component {
     render() {
         return (
-            <div class="content">
+            <div className="content">
              <div className="page-title-container v" ></div>           
-                <div class="container">
+                <div className="container">
                     <p className="nn"><span>Lưu hành từ ngày 01/04/2015</span></p>
 
                     <p className="nn"><span>Công ty TNHH Arch Việt Nam</span></p>

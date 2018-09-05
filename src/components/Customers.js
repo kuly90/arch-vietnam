@@ -37,6 +37,7 @@ class Customers extends Component {
 		fetch(`http://localhost:8080/customers/deleteCustomer?id=${id}`)
 			.then(this.getCustomers)
 			.catch(err => console.error(err))
+		this.props.history.push('/customers')
 
 	}
 
