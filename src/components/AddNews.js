@@ -46,18 +46,18 @@ class AddNews extends Component {
 						<VerticalMenu />
 					</div>
 					<div className="col-md-10">
-						<h3>Add News</h3>
+						<h3 style={{ marginLeft: '15px' }}>Add News</h3>
 						<p style={{ color: 'red' }}>{this.state.msgError}</p>
 						<p style={{ color: 'green' }}>{this.state.msgSuccess}</p>
 						<div className="col-sm-6">
-							<label className="control-label" htmlFor="contactform-subject" style={{ fontWeight: 'bold' }}>Title <span style={{ color: 'red' }}>*</span></label>
+							<label style={{ fontWeight: 'bold' }}>Title <span style={{ color: 'red' }}>*</span></label>
 							<input type="text" id="contactform-subject" className="form-control" name="title"
 								onChange={this.hanlerChange} value={this.state.title} />
-								<p></p>
-							<label className="control-label" htmlFor="contactform-body" style={{ fontWeight: 'bold' }}>Body <span style={{ color: 'red' }}>*</span></label>
-							<textarea className="form-control" size="60" style={{ height: '200px' }}
-								onChange={this.hanlerChange} name="body" value={this.state.body} /><br/>
-								<button onClick={this.handlerSaveNews} type="submit" className="btn btn-primary">ADD</button>
+							<p></p>
+							<label style={{ fontWeight: 'bold' }}>Body <span style={{ color: 'red' }}>*</span></label>
+							<textarea className="form-control" size="60" style={{ height: '300px' }}
+								onChange={this.hanlerChange} name="body" value={this.state.body} /><br />
+							<button onClick={this.handlerSaveNews} type="submit" className="btn btn-primary">ADD</button>
 						</div>
 					</div>
 				</div>

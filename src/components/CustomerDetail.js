@@ -15,8 +15,8 @@ class CustomerDetail extends Component {
 			message: '',
 			formRep: false,
 			cusRep: {},
-			repMail: '',
-			repMailErr:''
+			repMailSucc: '',
+			repMailErr: ''
 		}
 	}
 
@@ -29,20 +29,25 @@ class CustomerDetail extends Component {
 	}
 
 	replyForm(item) {
-		this.setState({ formRep: true, cusRep: item })
+		this.setState({ formRep: true, cusRep: item, repMailSucc: '', repMailErr: '' })
 	}
 
 	handlerChange = e => {
-		this.setState({[e.target.name]: e.target.value})
+		this.setState({ [e.target.name]: e.target.value })
 	}
 
 	repMail(cusRep) {
 		const { subject, message } = this.state;
-		const id = this.props.match.params.id.replace(":","");
-		fetch(`http://localhost:8080/reply-email?email=${cusRep.email}&subject=${subject}&message=${message}`)
-			.then(this.setState({repMail:'Reply Mail Success !', formRep: false}))
-			.catch(err => console.error(err))
-		this.props.history.push(`/customerDetail/:${id}`)
+		const id = this.props.match.params.id.replace(":", "");
+		if (subject === '' || message === '') {
+			this.setState({ repMailErr: '(*) is required !', repMailSucc: '' })
+		} else {
+			fetch(`http://localhost:8080/reply-email?email=${cusRep.email}&subject=${subject}&message=${message}`)
+				.then(this.setState({ repMailSucc: 'Reply Mail Success !', formRep: false, repMailErr: '' }))
+				.catch(err => console.error(err))
+			this.props.history.push(`/customerDetail/:${id}`)
+		}
+
 	}
 
 	render() {
@@ -56,7 +61,8 @@ class CustomerDetail extends Component {
 					</div>
 					<div className="col-md-10">
 						<div className="col-sm-6 contact-form">
-						<p style={{color:'green'}}>{this.state.repMail}</p>
+							<p style={{ color: 'green' }}>{this.state.repMailSucc}</p>
+							<p style={{ color: 'red' }}>{this.state.repMailErr}</p>
 							{
 								customerDetail.map((item, index) =>
 									<div key={index}>
@@ -79,14 +85,14 @@ class CustomerDetail extends Component {
 						</div>
 						{
 							formRep == true ?
-								<div className="col-sm-6 contact-form" style={{marginTop:'134px'}}>
+								<div className="col-sm-6 contact-form" style={{ marginTop: '134px' }}>
 									<div id="contact-form">
 										<input type="hidden" className="form-control" />
 										<label style={{ fontWeight: 'bold' }}>Subject</label>
-										<input type="text" className="form-control" name="subject" onChange={this.handlerChange}/>
+										<input type="text" className="form-control" name="subject" onChange={this.handlerChange} />
 										<p className="help-block help-block-error"></p>
 										<label style={{ fontWeight: 'bold' }}>Message</label>
-										<textarea className="form-control" size="50" name="message" onChange={this.handlerChange}/>
+										<textarea className="form-control" size="50" name="message" onChange={this.handlerChange} />
 										<p className="help-block help-block-error"></p>
 										<button className="btn btn-primary" onClick={() => this.repMail(cusRep)}>Send</button>
 									</div>
