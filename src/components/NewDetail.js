@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NewsHeader from "./NewsHeader";
 
 class NewDetail extends Component {
 	constructor(props) {
@@ -41,26 +42,14 @@ class NewDetail extends Component {
 		const { newsDetail, listNews } = this.state;
 		return (
 			<div className="container">
-				<div className="page-title-container" style={{ width: 1108 }}>
-					<div className="container">
-						<div className="row">
-							<div className="col-sm-12 wow fadeIn animated" style={{ visibility: 'visible', animationName: 'fadeIn' }}>
-								<i className="fa fa-rss-square" />
-								<h1>Tin tức</h1>
-							</div>
-						</div>
-					</div>
-				</div>
+				<NewsHeader/>
 				{
 					newsDetail.map((item, index) =>
 						<div id="primary" className="content-area col-md-8" key={index}>
-							{/* Blog Post */}
-							{/* Title */}
 							<h1>{item.title}</h1>
 							{item.date_create}
 							<hr />
-							{/* Preview Image */}
-							{item.body}
+							<span>{item.body}</span>
 						</div>
 					)
 				}

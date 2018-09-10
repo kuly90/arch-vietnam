@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NewsHeader from "./NewsHeader";
 
 import { Link } from 'react-router-dom';
 
@@ -28,17 +29,8 @@ class New extends Component {
 	render() {
 		const { news } = this.state;
 		return (
-			<div className="content">
-				<div className="page-title-container v">
-					<div className="container">
-						<div className="row">
-							<div className="col-sm-12 wow fadeIn animated h">
-								<i className="fa fa-rss-square"></i>
-								<h1>Tin tức</h1>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div className="container">
+				<NewsHeader/>
 				<div className="container">
 					<div className="row">
 						<div id="primary" className="content-area col-md-8">

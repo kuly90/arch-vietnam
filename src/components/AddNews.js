@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import VerticalMenu from "./VerticalMenu";
+import withAuth from './service/withAuth';
 
 class AddNews extends Component {
 	constructor(props) {
@@ -66,4 +67,4 @@ class AddNews extends Component {
 	}
 }
 
-export default AddNews;
+export default withAuth(AddNews);
