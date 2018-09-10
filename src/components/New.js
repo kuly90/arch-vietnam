@@ -21,7 +21,7 @@ class New extends Component {
 			.catch(err => console.error(err))
 	}
 
-	handlerDetail(item){
+	handlerDetail(item) {
 		this.props.history.push(`/NewDetail/:${item.id}`)
 	}
 
@@ -51,13 +51,13 @@ class New extends Component {
 												<article id="post-993" className="post-993 post type-post status-publish format-standard hentry category-template-2 category-uncategorized tag-content-2 					tag-excerpt-2 tag-template row archive">
 													<div className="col-md-9 col-xs-12">
 														<header className="entry-header">
-															<h1 className="entry-title" style={{cursor:'pointer'}} onClick={() => this.handlerDetail(item)} >{item.title}</h1>
+															<h1 className="entry-title" style={{ cursor: 'pointer' }} onClick={() => this.handlerDetail(item)} >{item.title}</h1>
 															<div className="entry-meta">
 																<span className="posted-on"><i className="icon-time"> </i>{item.date_create}</span>&nbsp;
 																{
-																	item.status === '0' ? <span style={{color:'green', border:'1px solid green',padding:'2px'}}>HIRRING</span>
-																	:
-																	<span style={{color:'red', border:'1px solid red',padding:'2px'}}>HIRED</span>
+																	item.status === '0' ? <span style={{ color: 'green', border: '1px solid green', padding: '2px' }}>HIRRING</span>
+																		:
+																		<span style={{ color: 'red', border: '1px solid red', padding: '2px' }}>HIRED</span>
 																}
 															</div>
 
@@ -85,8 +85,8 @@ class New extends Component {
 								<ul className="rp">
 									{
 										news.map((item, index) =>
-											<li>
-												<b style={{cursor:'pointer'}} onClick={() => this.handlerDetail(item)}>{item.title}</b>
+											<li key={index}>
+												<b style={{ cursor: 'pointer' }} onClick={() => this.handlerDetail(item)}>{item.title}</b>
 											</li>
 										)
 									}

@@ -9,7 +9,6 @@ class ListNews extends Component {
 			listNews: [],
 			delNews: {},
 			editNews: {},
-			
 		}
 	}
 
@@ -55,12 +54,8 @@ class ListNews extends Component {
 		this.setState({ editNews: item })
 	}
 
-	// hanlerChange = e => {
-	// 	this.setState({[e.target.name]: e.target.value})
-	// }
-
 	handlerUpdateNews() {
-		const { editNews} = this.state;
+		const { editNews } = this.state;
 		fetch(`http://localhost:8080/listNews/editNews?title=${editNews.title}&body=${editNews.body}&id=${editNews.id}`)
 			.then(this.getListNews)
 			.catch(err => console.error(err))
@@ -68,7 +63,6 @@ class ListNews extends Component {
 
 	render() {
 		const { listNews, delNews, editNews } = this.state;
-
 		return (
 			<div className="container">
 				<div className="row">
@@ -145,18 +139,18 @@ class ListNews extends Component {
 							</div>
 							<div className="modal-body">
 								<div className="form-inline">
-									<label style={{ fontWeight: 'bold'}}>Title <span style={{ color: 'red' }}>*</span></label><br/>
-									<input type="text" className="form-control" name="title" style={{width:'532px'}}
-										onChange={(e) => this.setState({editNews: {...editNews, title:e.target.value}})} value={editNews.title} />
+									<label style={{ fontWeight: 'bold' }}>Title <span style={{ color: 'red' }}>*</span></label><br />
+									<input type="text" className="form-control" name="title" style={{ width: '532px' }}
+										onChange={(e) => this.setState({ editNews: { ...editNews, title: e.target.value } })} value={editNews.title} />
 									<p></p>
-									<label style={{ fontWeight: 'bold' }}>Body <span style={{ color: 'red' }}>*</span></label><br/>
+									<label style={{ fontWeight: 'bold' }}>Body <span style={{ color: 'red' }}>*</span></label><br />
 									<textarea type="text" className="form-control" size="60" rows="15" cols="70"
-										onChange={(e) => this.setState({editNews: {...editNews, body: e.target.value}})} name="body" value={editNews.body} /><br />
+										onChange={(e) => this.setState({ editNews: { ...editNews, body: e.target.value } })} name="body" value={editNews.body} /><br />
 								</div>
 							</div>
 							<div className="modal-footer">
-								<button type="button" className="btn btn-primary" data-dismiss="modal" onClick={() =>this.handlerUpdateNews(editNews)}>Save</button>
-								<button type="button" className="btn btn-danger" data-dismiss="modal">No</button>
+								<button type="button" className="btn btn-primary" data-dismiss="modal" onClick={() => this.handlerUpdateNews(editNews)}>Save</button>
+								<button type="button" className="btn btn-danger" data-dismiss="modal">Cancel</button>
 							</div>
 						</div>
 					</div>

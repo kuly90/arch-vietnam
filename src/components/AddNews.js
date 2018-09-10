@@ -19,7 +19,7 @@ class AddNews extends Component {
 	}
 
 	handlerSaveNews = _ => {
-		const { title, body, msgError, msgSuccess } = this.state;
+		const { title, body} = this.state;
 		if (title === '' || body === '') {
 			this.setState({
 				msgError: '(*) is required !!!',

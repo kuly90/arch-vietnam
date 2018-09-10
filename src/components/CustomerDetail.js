@@ -47,12 +47,10 @@ class CustomerDetail extends Component {
 				.catch(err => console.error(err))
 			this.props.history.push(`/customerDetail/:${id}`)
 		}
-
 	}
 
 	render() {
 		const { customerDetail, formRep, cusRep } = this.state;
-
 		return (
 			<div className="container">
 				<div className="row">
@@ -84,7 +82,7 @@ class CustomerDetail extends Component {
 							}
 						</div>
 						{
-							formRep == true ?
+							formRep === true ?
 								<div className="col-sm-6 contact-form" style={{ marginTop: '134px' }}>
 									<div id="contact-form">
 										<input type="hidden" className="form-control" />
