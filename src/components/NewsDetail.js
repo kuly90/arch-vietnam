@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NewsHeader from "./NewsHeader";
 
-class NewDetail extends Component {
+class NewsDetail extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -42,7 +42,7 @@ class NewDetail extends Component {
 		const { newsDetail, listNews } = this.state;
 		return (
 			<div className="container">
-				<NewsHeader/>
+				<NewsHeader />
 				{
 					newsDetail.map((item, index) =>
 						<div id="primary" className="content-area col-md-8" key={index}>
@@ -72,4 +72,4 @@ class NewDetail extends Component {
 	}
 }
 
-export default NewDetail;
+export default NewsDetail;

@@ -30,7 +30,7 @@ class New extends Component {
 		const { news } = this.state;
 		return (
 			<div className="container">
-				<NewsHeader/>
+				<NewsHeader />
 				<div className="container">
 					<div className="row">
 						<div id="primary" className="content-area col-md-8">

@@ -9,10 +9,10 @@ class container extends Component {
 		}
 	}
 
-	componentDidMount(){
+	componentDidMount() {
 		fetch('http://localhost:8080/listnews')
 			.then(response => response.json())
-			.then(response => this.setState({listNews: response.data}))
+			.then(response => this.setState({ listNews: response.data }))
 			.catch(err => console.error(err))
 	}
 
@@ -32,7 +32,6 @@ class container extends Component {
 								<img className="first-slide" src="http://arch-vietnam.vn/images/arch1_a.jpg" alt="First slide" />
 								<div className="container">
 									<div className="carousel-caption">
-
 									</div>
 								</div>
 							</div>
@@ -40,7 +39,6 @@ class container extends Component {
 								<img className="second-slide" src="http://arch-vietnam.vn/images/arch2_a.jpg" alt="Second slide" />
 								<div className="container">
 									<div className="carousel-caption">
-
 									</div>
 								</div>
 							</div>
@@ -68,22 +66,18 @@ class container extends Component {
 						<div className="row">
 							<div className="col-md-12">
 								<div className="carousel slide" data-ride="carousel" id="news-carousel">
-
 									<div className="carousel-inner">
-
 										{
 											listNews.map((item, index) =>
-											<div className="item active" key={index}>
-											<div className="row">
-												<div className="col-sm-12 text-left">
-													<p><Link to="/detail-news?id=9">{item.title}</Link></p>
+												<div className="item active" key={index}>
+													<div className="row">
+														<div className="col-sm-12 text-left">
+															<p><Link to="/detail-news?id=9">{item.title}</Link></p>
+														</div>
+													</div>
 												</div>
-											</div>
-										</div>
-										)
+											)
 										}
-									
-										
 									</div>
 									<Link data-slide="prev" to="#news-carousel" className="left carousel-control"><i className="fa fa-chevron-left"></i></Link>
 									<Link data-slide="next" to="#news-carousel" className="right carousel-control"><i className="fa fa-chevron-right"></i></Link>
@@ -94,12 +88,10 @@ class container extends Component {
 				</div>
 				<div className="container">
 					<h3 className="title"><i className="fa fa-info-circle"></i>Giới thiệu chung</h3>
-
 					<div className="intro border">
 						<div className="intro border">
 							<img className="intro-image img-responsive" src="http://arch-vietnam.vn/images/arch_intro_index.jpg" />
 						</div>
-
 						<div className="col-md-6">
 							<h4 className="intro-heading">Triết lý kinh doanh</h4>
 							<div className="lead">
@@ -114,7 +106,6 @@ class container extends Component {
 							<div className="lead">
 								<p>Mỗi năm, chúng tôi cử 2 người sang Tokyo để nghiên cứu, học hỏi thêm về kỹ thuật công nghệ và cả tiếng Nhật trong khoảng thời gian gần 1 năm.<br />
 									Với mục tiêu trở thành một công ty sẽ không có nhân viên nào nghỉ việc. chúng tôi sẽ cố gắng tích lũy nhiều hơn nữa những kiến thức nghiệp vụ để phục vụ cho khách hàng.</p>
-
 							</div>
 						</div>
 						<div className="clearfix"></div>
@@ -132,29 +123,24 @@ class container extends Component {
 								</div>
 							</div>
 						</div>
-
 						<div className="col-xs-18 col-sm-4 col-md-4">
 							<div className="thumbnail">
 								<img src="http://arch-vietnam.vn/images/company-NEET-in-Japan-01.jpg" alt="" />
 								<div className="caption">
 									<h4>Công việc với các đối tác khác ở Nhật.</h4>
 									<p>Ngoài việc nhận công việc sản xuất phần mềm từ công ty mẹ ở Nhật bản, thì Arch Việt nam xúc tiến trực tiếp khai thác khách hàng với các đối tác Nhật bản khác. Với đội ngũ quản lý, giám sát chất lượng có kinh nghiệm từ cty Arch JP, Arch VN sẽ có thể đảm bảo chất lượng, cũng như những đòi hỏi nghiêm ngặt của các đối tác Nhật bản.</p>
-
 								</div>
 							</div>
 						</div>
-
 						<div className="col-xs-18 col-sm-4 col-md-4">
 							<div className="thumbnail">
 								<img src="http://arch-vietnam.vn/images/japanese-tech.jpg" alt="" />
 								<div className="caption">
 									<h4>Triển khai các công nghệ Nhật bản ở Việt Nam</h4>
 									<p>Ngoài các vấn đề với các đối tác chiến lược, thì Arch Việt Nam sẽ xúc tiến đưa các công nghệ tiên tiến ở Nhật bản về Việt Nam. Cũng như xúc tiến các business với Việt Nam.<br /><br /><br /></p>
-
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>

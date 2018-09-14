@@ -20,7 +20,7 @@ class AddNews extends Component {
 	}
 
 	handlerSaveNews = _ => {
-		const { title, body} = this.state;
+		const { title, body } = this.state;
 		if (title === '' || body === '') {
 			this.setState({
 				msgError: '(*) is required !!!',
@@ -40,6 +40,8 @@ class AddNews extends Component {
 	}
 
 	render() {
+		console.log(this.props.user.username);
+		
 		return (
 			<div className="container">
 				<div className="row">

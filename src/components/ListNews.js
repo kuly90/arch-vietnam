@@ -77,7 +77,7 @@ class ListNews extends Component {
 									<th>Title</th>
 									<th>Date Create</th>
 									<th>Status</th>
-									<th style={{ textAlign: 'center' }}>Action</th>
+									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -87,7 +87,8 @@ class ListNews extends Component {
 											<td>{item.title}</td>
 											<td>{item.date_create}</td>
 											{
-												item.status === '0' ? <td style={{ cursor: 'pointer', color: 'green' }} onClick={() => this.changeToHired(item)}>HIRRING</td>
+												item.status === '0' ? 
+													<td style={{ cursor: 'pointer', color: 'green' }} onClick={() => this.changeToHired(item)}>HIRRING</td>
 													:
 													<td style={{ cursor: 'pointer', color: 'red' }} onClick={() => this.changeToHirring(item)}>HIRED</td>
 											}
@@ -95,7 +96,7 @@ class ListNews extends Component {
 												<button className="btn btn-primary" data-toggle="modal" data-target="#myModalEdit" onClick={() => this.confirmEdit(item)}>
 													<span className="fa fa-pencil fa-fw"></span>
 												</button>&nbsp;
-											<button className="btn btn-danger" data-toggle="modal" data-target="#myModalDelete" onClick={() => this.confirmDelete(item)}>
+												<button className="btn btn-danger" data-toggle="modal" data-target="#myModalDelete" onClick={() => this.confirmDelete(item)}>
 													<span className="fa fa-trash-o fa-fw"></span>
 												</button>
 											</td>
@@ -119,7 +120,6 @@ class ListNews extends Component {
 							</div>
 							<div className="modal-body">
 								<div className="form-inline">
-
 								</div>
 							</div>
 							<div className="modal-footer">

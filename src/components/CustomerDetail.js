@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import VerticalMenu from "./VerticalMenu";
+import withAuth from "./service/withAuth";
+
 class CustomerDetail extends Component {
 	constructor(props) {
 		super(props);
@@ -50,7 +52,7 @@ class CustomerDetail extends Component {
 	}
 
 	render() {
-		const { customerDetail, formRep, cusRep } = this.state;
+		const { customerDetail, formRep, cusRep } = this.state;		
 		return (
 			<div className="container">
 				<div className="row">
@@ -106,4 +108,4 @@ class CustomerDetail extends Component {
 	}
 }
 
-export default CustomerDetail;
+export default withAuth(CustomerDetail);
