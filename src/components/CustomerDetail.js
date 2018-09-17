@@ -52,7 +52,7 @@ class CustomerDetail extends Component {
 	}
 
 	render() {
-		const { customerDetail, formRep, cusRep } = this.state;		
+		const { customerDetail, formRep, cusRep } = this.state;
 		return (
 			<div className="container">
 				<div className="row">

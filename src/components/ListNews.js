@@ -77,6 +77,7 @@ class ListNews extends Component {
 									<th>Title</th>
 									<th>Date Create</th>
 									<th>Status</th>
+									<th>Author</th>
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -84,14 +85,15 @@ class ListNews extends Component {
 								{
 									listNews.map((item, index) =>
 										<tr key={index}>
-											<td>{item.title}</td>
+											<td>{item.title.substring(0, 50)}&nbsp;</td>
 											<td>{item.date_create}</td>
 											{
-												item.status === '0' ? 
+												item.status === '0' ?
 													<td style={{ cursor: 'pointer', color: 'green' }} onClick={() => this.changeToHired(item)}>HIRRING</td>
 													:
 													<td style={{ cursor: 'pointer', color: 'red' }} onClick={() => this.changeToHirring(item)}>HIRED</td>
 											}
+											<td>{item.author}</td>
 											<td>
 												<button className="btn btn-primary" data-toggle="modal" data-target="#myModalEdit" onClick={() => this.confirmEdit(item)}>
 													<span className="fa fa-pencil fa-fw"></span>
@@ -135,6 +137,7 @@ class ListNews extends Component {
 						<div className="modal-content">
 							<div className="modal-header">
 								<h3 className="modal-title">Edit News</h3>
+								<span>Last Update: {editNews.date_update}</span>
 								<button type="button" className="close" data-dismiss="modal">&times;</button>
 							</div>
 							<div className="modal-body">

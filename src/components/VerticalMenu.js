@@ -30,7 +30,9 @@ class VerticalMenu extends Component {
 		return (
 			<div>
 				<div className="vertical-menu">
-					<NavLink to="/adminPage">Add News</NavLink>
+					<NavLink to="/addUser">Add User</NavLink>
+					<NavLink to="/listUsers">List Users</NavLink>
+					<NavLink to="/addNews">Add News</NavLink>
 					<NavLink to="/listNews">List News</NavLink>
 					<NavLink to="/customers">Customers
                         {

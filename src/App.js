@@ -10,10 +10,12 @@ import NewsDetail from "./components/NewsDetail"
 import contact from './components/contact';
 import Privacy from './components/Privacy';
 import Login from "./components/Login";
-import Admin from "./components/Admin";
+import AddNews from "./components/AddNews";
 import ListNews from "./components/ListNews";
 import Customers from "./components/Customers";
 import CustomerDetail from "./components/CustomerDetail"
+import AddUser from "./components/AddUser";
+import ListUsers from "./components/ListUsers";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
@@ -24,7 +26,9 @@ class App extends Component {
 					<Header />
 					<Route path="/" exact component={container} />
 					<Route path="/login" component={Login} />
-					<Route path="/adminPage" component={Admin} />
+					<Route path="/addUser" component={AddUser} />
+					<Route path="/listUsers" component={ListUsers} />
+					<Route path="/addNews" component={AddNews} />
 					<Route path="/listNews" component={ListNews} />
 					<Route path="/customers" component={Customers} />
 					<Route path="/customerDetail/:id" component={CustomerDetail} />

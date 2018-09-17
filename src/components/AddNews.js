@@ -20,6 +20,7 @@ class AddNews extends Component {
 	}
 
 	handlerSaveNews = _ => {
+		const author = this.props.user.username;
 		const { title, body } = this.state;
 		if (title === '' || body === '') {
 			this.setState({
@@ -33,15 +34,12 @@ class AddNews extends Component {
 				title: '',
 				body: ''
 			})
-			fetch(`http://localhost:8080/addNews?title=${title}&body=${body}`)
+			fetch(`http://localhost:8080/addNews?title=${title}&body=${body}&author=${author}`)
 				.catch(err => console.error(err))
 		}
-
 	}
 
 	render() {
-		console.log(this.props.user.username);
-		
 		return (
 			<div className="container">
 				<div className="row">
