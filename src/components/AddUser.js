@@ -12,7 +12,7 @@ class AddUser extends Component {
 					<div className="col-md-2">
 						<VerticalMenu />
 					</div>
-					<FormAddUser history={this.props.history} match={this.props.match}/>
+					<FormAddUser history={this.props.history} match={this.props.match} />
 				</div>
 			</div>
 		);

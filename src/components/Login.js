@@ -22,11 +22,11 @@ class Login extends Component {
                 <form onSubmit={this.handleFormSubmit}>
                     <label>Email:</label>
                     <input type="txt" className="form-control"
-                        placeholder="Enter username" name="username"
+                        placeholder="Enter username" name="username" required
                         onChange={this.handleChange} />
                     <label>Password:</label>
                     <input type="password" className="form-control"
-                        placeholder="Enter password" name="password"
+                        placeholder="Enter password" name="password" required
                         onChange={this.handleChange} />
                     <div className="checkbox">
                         <label><input type="checkbox" name="remember" /> Remember me</label>
